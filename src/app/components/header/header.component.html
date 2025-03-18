@@ -1,0 +1,22 @@
+<header class="navbar bg-base-100 shadow-sm">
+    <div class="flex-1">
+        <a class="btn btn-ghost text-xl">PipesApp</a>
+    </div>
+    <div class="flex-none">
+        <ul class="menu menu-horizontal px-1">
+            <li><a [routerLink]="'basic'" [routerLinkActive]="'underline'">Pipes básicos</a></li>
+            <li><a [routerLink]="'numbers'" [routerLinkActive]="'underline'">Pipes numéricos</a></li>
+            <li><a [routerLink]="'uncommon'" [routerLinkActive]="'underline'">Pipes no tan comunes</a></li>
+            <li><a [routerLink]="'custom'" [routerLinkActive]="'underline'">Pipes personalizados</a></li>
+            <!-- <li>
+                <details>
+                    <summary>Parent</summary>
+                    <ul class="bg-base-100 rounded-t-none p-2">
+                        <li><a>Link 1</a></li>
+                        <li><a>Link 2</a></li>
+                    </ul>
+                </details>
+            </li> -->
+        </ul>
+    </div>
+</header>
