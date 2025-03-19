@@ -1,1 +1,25 @@
-<p>numbers-page works!</p>,
+<section class="m-10">
+    <h1 class="text-2xl">Pipes básicos de Angular</h1>
+    <h3 class="text-xl">Pipes incluidos en angular y utilizados con normalidad</h3>
+</section>
+
+<div class="stats shadow w-full">
+    <div class="stat place-items-center">
+      <div class="stat-title">Number: '1.2-2'</div>
+      <!-- Number configurado para mostrar de 2 a 2 decimales -->
+      <div class="stat-value">{{totalSells() | number:'1.2-2'}}</div> 
+      <div class="stat-desc">Valor original: {{totalSells()}}</div>
+    </div>
+  
+    <div class="stat place-items-center">
+      <div class="stat-title">Currency</div>
+      <div class="stat-value text-secondary">{{totalSells() | currency:'CAD': 'symbol-narrow': '1.2-2' }}</div>
+      <div class="stat-desc text-secondary">Valor original: {{totalSells()}}</div>
+    </div>
+    
+    <div class="stat place-items-center">
+      <div class="stat-title">Percent</div>
+      <div class="stat-value text-secondary">{{percent() | percent: '1.2-2'}}</div>
+      <div class="stat-desc text-secondary">Valor original: {{percent()}}</div>
+    </div>
+  </div>
