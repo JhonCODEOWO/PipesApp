@@ -22,3 +22,41 @@
       <div class="stat-desc">Forma original: {{fullName()}}</div>
     </div>
   </div>
+
+<div class="divider"></div>
+
+<div class="stats shadow w-full">
+  <div class="stat place-items-center">
+    <div class="stat-title">Date Pipe</div>
+    <div class="stat-value">{{customDate() | date}}</div>
+    <div class="stat-desc">Valor original: {{customDate()}}</div>
+  </div>
+  
+  <div class="stat place-items-center">
+    <div class="stat-title">Date|long|GMT-6</div>
+    <div class="stat-value">{{customDate() | date:'long': 'GMT-6'}}</div>
+    <div class="stat-desc">Valor original: {{customDate()}}</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="stats shadow w-full">
+  <div class="stat place-items-center">
+    <div class="stat-title">Date Custom</div>
+    <div class="stat-value">{{customDate() | date: 'yyyy MM'}}</div>
+    <div class="stat-desc">Valor original: {{customDate()}}</div>
+  </div>
+  
+  <div class="stat place-items-center">
+    <div class="stat-title">Date Custom</div>
+    <div class="stat-value">{{customDate() | date: 'HH:mm:ss'}}</div>
+    <div class="stat-desc">Valor original: {{customDate()}}</div>
+  </div>
+  
+  <div class="stat place-items-center">
+    <div class="stat-title">Date Custom</div>
+    <div class="stat-value">{{customDate() | date: 'EEEE '}}</div>
+    <div class="stat-desc">Valor original: {{customDate()}}</div>
+  </div>
+</div>
