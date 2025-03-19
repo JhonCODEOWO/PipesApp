@@ -1,13 +1,14 @@
 <header class="navbar bg-base-100 shadow-sm">
     <div class="flex-1">
-        <a class="btn btn-ghost text-xl">PipesApp</a>
+        <a class="btn btn-ghost text-xl" [routerLink]="''">PipesApp</a>
     </div>
     <div class="flex-none">
         <ul class="menu menu-horizontal px-1">
-            <li><a [routerLink]="'basic'" [routerLinkActive]="'underline'">Pipes básicos</a></li>
-            <li><a [routerLink]="'numbers'" [routerLinkActive]="'underline'">Pipes numéricos</a></li>
-            <li><a [routerLink]="'uncommon'" [routerLinkActive]="'underline'">Pipes no tan comunes</a></li>
-            <li><a [routerLink]="'custom'" [routerLinkActive]="'underline'">Pipes personalizados</a></li>
+            @for (route of routes; track route.path) {
+                <li>
+                    <a [routerLink]="route.path" routerLinkActive="text-accent">{{route.title}}</a>
+                </li>
+            }
             <!-- <li>
                 <details>
                     <summary>Parent</summary>
