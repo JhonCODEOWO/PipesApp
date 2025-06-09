@@ -50,4 +50,13 @@
             }
         </ul>
     </app-card>
+
+    <app-card title="Async Pipe">
+        <p>{{promiseValue | async}}</p>
+        @if (promiseValue | async; as value) {
+            <p class="text-primary">{{value}}</p>
+        } @else {
+            <p class="text-error">Espere por favor...</p>
+        }
+    </app-card>
 </section>
