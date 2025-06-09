@@ -38,4 +38,16 @@
         <pre>{{client() | json}}</pre>
         <pre>{{clients().join(', ') | json}}</pre>
     </app-card>
+    
+    <app-card title="JsonPipe">
+        <pre>{{profile | keyvalue | json}}</pre>
+
+        <ul class="flex flex-col">
+            @for (item of profile | keyvalue; track $index) {
+                <span>
+                    <strong>{{item.key}}</strong>: {{item.value}}
+                </span>
+            }
+        </ul>
+    </app-card>
 </section>
