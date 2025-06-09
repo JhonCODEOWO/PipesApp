@@ -3,7 +3,7 @@
     <h3 class="text-xl">Pipes incluidos en angular que no se suelen usar constantemente</h3>
 </section>
 
-<section class="grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 m-2">
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 m-2">
     <app-card title="i18nSelectPipe">
         <p>Saludos a {{client().name}} es un placer {{ client().gender | i18nSelect:invitationMap }} a nuestro evento</p>
         <button (click)="changeClient()" class="btn btn-primary">Cambiar cliente</button>
@@ -12,5 +12,24 @@
     <app-card title="i18nPluralPipe">
         <p>Actualmente {{ clients().length | i18nPlural:clientsMap()}}</p>
         <button [disabled]="clients().length === 0" (click)="deleteClient()" class="btn btn-primary">Borrar cliente en espera</button>
+    </app-card>
+    
+    <app-card title="SlicePipe">
+        <b>Original</b>
+        <p>
+            {{clients().join(', ')}}
+        </p>
+
+        <b class="mt-2">Slice:0:2 (Quita del primer índice seleccionado al último sin incluirlo)</b>
+        <p>{{clients() | slice:0:2}}</p>
+        
+        <b class="mt-2">Slice:1:2 (Quita del primer índice seleccionado al último sin incluirlo)</b>
+        <p>{{clients() | slice:1:2}}</p>
+        
+        <b class="mt-2">Slice:1:3 (Quita del primer índice seleccionado al último sin incluirlo)</b>
+        <p>{{clients() | slice:1:3}}</p>
+        
+        <b class="mt-2">Slice:0:-3 (Con valores negativos, se recorre el arreglo de fin a inicio y se ignoran los valores)</b>
+        <p>{{clients() | slice:0:-3}}</p>
     </app-card>
 </section>
