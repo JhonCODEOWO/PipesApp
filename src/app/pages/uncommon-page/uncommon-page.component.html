@@ -32,4 +32,10 @@
         <b class="mt-2">Slice:0:-3 (Con valores negativos, se recorre el arreglo de fin a inicio y se ignoran los valores)</b>
         <p>{{clients() | slice:0:-3}}</p>
     </app-card>
+
+    <app-card title="JsonPipe">
+        <pre>{{clients() | json}}</pre>
+        <pre>{{client() | json}}</pre>
+        <pre>{{clients().join(', ') | json}}</pre>
+    </app-card>
 </section>
