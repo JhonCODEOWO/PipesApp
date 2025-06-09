@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CardComponent } from "../card/card.component";
 import { AsyncPipe, I18nPluralPipe, I18nSelectPipe, JsonPipe, KeyValuePipe, SlicePipe } from '@angular/common';
+import { interval, tap } from 'rxjs';
 
 const client1 = {
   name: 'Alejandra',
@@ -76,4 +77,8 @@ export default class UncommonPageComponent {
       console.log('Promesa finalizada');
     }, 3500)
   })
+
+  myObservableTimer = interval(2000).pipe(
+    tap((value)=>console.log(value))
+  )
 }
