@@ -1,12 +1,55 @@
-<section class="m-10">
+<section class="p-3">
     <h1 class="text-3xl font-black">Pipes personalizados</h1>
     <h3 class="text-xl font-thin">Pipes generados para resolver situaciones específicas, no incluidos en Angular</h3>
 </section>
 
 <div class="stats shadow">
   <div class="stat">
-    <div class="stat-title">Total Page Views</div>
-    <div class="stat-value">89,400</div>
-    <div class="stat-desc">21% more than last month</div>
+    <div class="stat-title">ToggleCasePipe</div>
+    <div class="stat-value">{{name() | toggleCase: uppercase()}}</div>
+    <div class="stat-desc">Formato original: {{name()}}</div>
+
+    <button (click)="changeState()" class="btn btn-primary mt-4">Cambiar estado de pipe</button>
   </div>
 </div>
+
+<div class="divider my-2"></div>
+
+<section>
+  <h2 class="p-3 text-2xl font-black">Pipes personalizados en acción.</h2>
+
+  <div class="flex justify-end mb-2 gap-x-2">
+    <button class="btn btn-primary">Por nombre</button>
+    <button class="btn btn-primary">Por volador</button>
+    <button class="btn btn-primary">Por color</button>
+    <button class="btn btn-primary">Por creador</button>
+  </div>
+
+  <div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th></th>
+        <th>Nombre</th>
+        <th>Puede volar</th>
+        <th>Color</th>
+        <th>Creador</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- row 1 -->
+       @for (hero of heroes(); track hero.id;let i = $index) {
+        <tr>
+        <th>{{i + 1}}</th>
+        <td>{{hero.name}}</td>
+        <td>
+          {{hero.canFly}}
+        </td>
+        <td>{{hero.creator}}</td>
+      </tr>
+       }
+    </tbody>
+  </table>
+</div>
+</section>
