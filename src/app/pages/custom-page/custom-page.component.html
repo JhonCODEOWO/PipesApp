@@ -44,8 +44,9 @@
         <th>{{i + 1}}</th>
         <td>{{hero.name}}</td>
         <td>
-          {{hero.canFly}}
+          <span class="text-xs w-44" [class.text-success]="hero.canFly" [class.text-accent]="!hero.canFly">{{hero.canFly | canFly}}</span>
         </td>
+        <td>{{hero.color | heroColor}}</td>
         <td>{{hero.creator}}</td>
       </tr>
        }
