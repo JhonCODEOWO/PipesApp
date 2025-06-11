@@ -18,12 +18,16 @@
 <section>
   <h2 class="p-3 text-2xl font-black">Pipes personalizados en acción.</h2>
 
-  <h3>Filtrando por: xxx Ordenando por: {{sortBy()}}</h3>
+  <h3>Filtrando por: {{searchQuery()}} Ordenando por: {{sortBy()}}</h3>
   <div class="flex justify-end mb-2 gap-x-2">
+    <input type="text" name="" id="" class="input input-bordered w-full" placeholder="Buscar héroe" (input)="searchQuery.set(txtSearch.value)" #txtSearch>
     <button class="btn btn-primary" (click)="sortBy.set('name')">Por nombre</button>
     <button class="btn btn-primary" (click)="sortBy.set('canFly')">Por volador</button>
     <button class="btn btn-primary" (click)="sortBy.set('color')">Por color</button>
     <button class="btn btn-primary" (click)="sortBy.set('creator')">Por creador</button>
+    @if (sortBy()) {
+      <button class="btn btn-error" (click)="sortBy.set(null)">Reiniciar</button>
+    }
   </div>
 
   <div class="overflow-x-auto">
@@ -40,7 +44,7 @@
     </thead>
     <tbody>
       <!-- row 1 -->
-       @for (hero of heroes() | heroSortBy: sortBy(); track hero.id;let i = $index) {
+       @for (hero of heroes() | heroFiler: searchQuery() |heroSortBy: sortBy(); track hero.id;let i = $index) {
         <tr>
         <th>{{i + 1}}</th>
         <td>{{hero.name}}</td>

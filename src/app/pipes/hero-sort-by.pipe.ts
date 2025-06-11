@@ -7,20 +7,23 @@ import { Hero } from '../interfaces/hero.interface';
 export class HeroSortByPipe implements PipeTransform {
 
   transform(value: Hero[], sortBy: keyof Hero | null): Hero[] {
+    console.log(sortBy);
     if(!sortBy) return value;
+
+    const sorted = [...value];
 
     switch (sortBy) {
       case 'name':
-        return value.sort((a, b)=>a.name.localeCompare(b.name))
+        return sorted.sort((a, b)=>a.name.localeCompare(b.name))
       
       case 'canFly':
-        return value.sort((a, b)=> (a.canFly? 1: -1) - (b.canFly? 1: -1))
+        return sorted.sort((a, b)=> (a.canFly? 1: -1) - (b.canFly? 1: -1))
 
       case 'color':
-        return value.sort((a, b)=>a.color - b.color);
+        return sorted.sort((a, b)=>a.color - b.color);
       
       case 'color':
-        return value.sort((a, b)=>a.creator - b.creator);
+        return sorted.sort((a, b)=>a.creator - b.creator);
     
       default:
         return value;
