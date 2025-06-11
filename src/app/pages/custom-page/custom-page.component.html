@@ -46,8 +46,8 @@
         <td>
           <span class="text-xs w-44" [class.text-success]="hero.canFly" [class.text-accent]="!hero.canFly">{{hero.canFly | canFly}}</span>
         </td>
-        <td>{{hero.color | heroColor}}</td>
-        <td>{{hero.creator}}</td>
+        <td [style.color]="hero.color | heroTextColor">{{hero.color | heroColor | titlecase}}</td>
+        <td>{{hero.creator | heroCreator}}</td>
       </tr>
        }
     </tbody>
